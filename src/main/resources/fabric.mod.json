@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "btwr_api",
+  "version": "${version}",
+  "name": "BTWR: API",
+  "description": "API for the Better Than Wolves: Remastered! project.",
+  "authors": [],
+  "contact": {},
+  "license": "CC-BY-4.0",
+  "icon": "assets/btwr_api/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "org.btwr.api.BTWRApiModDataGenerator"
+    ],
+    "client": [
+      "org.btwr.api.BTWRApiModClient"
+    ],
+    "main": [
+      "org.btwr.api.BTWRApiMod"
+    ]
+  },
+  "mixins": [
+    "btwr_api.mixins.json",
+    {
+      "config": "btwr_api.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
