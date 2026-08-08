@@ -1,9 +1,30 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "org.btwr.api.mixin",
+  "package": "org.btwr.api.impl.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "accessor.ShapelessRecipeJsonBuilderAccessor",
+    "added.BlockAddedMixin",
+    "added.FarmlandBlockAddedMixin",
+    "added.ItemAddedMixin",
+    "added.ItemStackAddedMixin",
+    "added.PlayerEntityAddedMixin",
+    "block.BlockMixin",
+    "block.FireBlockAccessor",
+    "block.FireBlockMixin",
+    "entity.FallingBlockEntityMixin",
+    "entity.LivingEntityMixin",
+    "entity.PlayerEntityMixin",
+    "item.ItemMixin",
+    "item.RepairItemRecipeMixin",
+    "item.ShearsItemMixin",
+    "recipe.AnvilScreenHandlerMixin",
+    "recipe.CraftingResultSlotMixin",
+    "recipe.CraftingScreenHandlerMixin",
+    "recipe.GrindstoneScreenHandlerMixin",
+    "recipe.RecipeManagerMixin",
+    "world.WorldMixin"
   ],
   "injectors": {
     "defaultRequire": 1

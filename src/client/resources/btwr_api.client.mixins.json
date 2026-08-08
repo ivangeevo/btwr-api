@@ -1,9 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "org.btwr.api.btwr_api.mixin.client",
+  "package": "org.btwr.api.impl.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
+    "HandledScreenAccessor",
+    "HeldItemRendererMixin",
+    "InventoryScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -10,15 +10,11 @@
   "icon": "assets/btwr_api/icon.png",
   "environment": "*",
   "entrypoints": {
-    "fabric-datagen": [
-      "org.btwr.api.BTWRApiModDataGenerator"
-    ],
-    "client": [
-      "org.btwr.api.BTWRApiModClient"
-    ],
-    "main": [
-      "org.btwr.api.BTWRApiMod"
-    ]
+    "fabric-datagen": ["org.btwr.api.impl.datagen.BTWRApiDataGen"],
+    "client": ["org.btwr.api.BTWRApiClient"],
+    "main": ["org.btwr.api.BTWRApi"],
+    "emi": ["org.btwr.api.impl.emi.BTWRApiEmiPlugin"]
+
   },
   "mixins": [
     "btwr_api.mixins.json",
@@ -31,5 +27,16 @@
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}"
-  }
+  },
+  "custom": {
+    "loom:injected_interfaces": {
+      "net/minecraft/class_1309": ["org/btwr/api/impl/added/LivingEntityAdded"],
+      "net/minecraft/class_1657": ["org/btwr/api/impl/added/PlayerEntityAdded"],
+      "net/minecraft/class_2248": ["org/btwr/api/impl/added/BlockAdded"],
+      "net/minecraft/class_1792": ["org/btwr/api/impl/added/ItemAdded"],
+      "net/minecraft/class_1799": ["org/btwr/api/impl/added/ItemStackAdded"],
+      "net/minecraft/class_1937": ["org/btwr/api/impl/added/WorldAdded"]
+    }
+  },
+  "accessWidener" : "btwr_api.accesswidener"
 }
