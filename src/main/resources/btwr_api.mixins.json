@@ -11,7 +11,7 @@
     "added.ItemStackAddedMixin",
     "added.PlayerEntityAddedMixin",
     "block.BlockMixin",
-    "block.FireBlockAccessor",
+    "accessor.FireBlockAccessor",
     "block.FireBlockMixin",
     "entity.FallingBlockEntityMixin",
     "entity.LivingEntityMixin",

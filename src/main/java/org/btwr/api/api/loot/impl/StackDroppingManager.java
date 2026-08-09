@@ -1,4 +1,4 @@
-package org.btwr.api.api.loot;
+package org.btwr.api.api.loot.impl;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -8,7 +8,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import org.btwr.api.api.loot.condition.DirectionalDropConditions;
+import org.btwr.api.api.loot.DirectionalDropConditions;
 import org.btwr.api.api.util.utils.ItemUtils;
 import org.btwr.api.api.util.utils.VectorUtils;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;

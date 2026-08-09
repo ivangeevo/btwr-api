@@ -1,4 +1,4 @@
-package org.btwr.api.api.recipe;
+package org.btwr.api.api.recipe.recipes;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
@@ -25,6 +25,7 @@ import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.recipe.input.CraftingRecipeInput;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
+import org.btwr.api.api.recipe.BTWRApiRecipes;
 import org.btwr.api.api.recipe.capability.AdditionalDropsRecipe;
 import org.btwr.api.api.recipe.capability.CraftingWithToolRecipe;
 import org.btwr.api.api.tag.BTWRConventionalTags;

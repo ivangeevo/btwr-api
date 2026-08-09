@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
-import org.btwr.api.api.recipe.ExtendedShapelessRecipe;
+import org.btwr.api.api.recipe.recipes.ExtendedShapelessRecipe;
 
 import java.util.ArrayList;
 import java.util.List;

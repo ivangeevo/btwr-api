@@ -12,7 +12,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
-import org.btwr.api.impl.mixin.block.FireBlockAccessor;
+import org.btwr.api.impl.mixin.accessor.FireBlockAccessor;
 
 public class FireBlockUtils {
 

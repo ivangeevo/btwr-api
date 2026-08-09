@@ -17,7 +17,7 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import org.btwr.api.BTWRApi;
 import org.btwr.api.api.recipe.BTWRApiRecipes;
-import org.btwr.api.api.recipe.ExtendedShapelessRecipe;
+import org.btwr.api.api.recipe.recipes.ExtendedShapelessRecipe;
 
 import java.util.function.Supplier;
 

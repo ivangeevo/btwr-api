@@ -1,4 +1,4 @@
-package org.btwr.api.impl.mixin.block;
+package org.btwr.api.impl.mixin.accessor;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import net.minecraft.block.Block;

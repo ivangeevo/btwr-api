@@ -1,4 +1,4 @@
-package org.btwr.api.api.loot.condition;
+package org.btwr.api.api.loot;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;

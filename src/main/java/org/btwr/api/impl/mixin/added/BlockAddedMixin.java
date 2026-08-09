@@ -16,7 +16,7 @@ import org.btwr.api.api.crafting.FurnaceBurnTime;
 import org.btwr.api.api.util.utils.FireBlockUtils;
 import org.btwr.api.api.util.utils.WorldUtils;
 import org.btwr.api.impl.added.BlockAdded;
-import org.btwr.api.impl.mixin.block.FireBlockAccessor;
+import org.btwr.api.impl.mixin.accessor.FireBlockAccessor;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 

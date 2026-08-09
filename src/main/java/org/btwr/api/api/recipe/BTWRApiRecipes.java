@@ -6,6 +6,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import org.btwr.api.BTWRApi;
+import org.btwr.api.api.recipe.recipes.ExtendedShapelessRecipe;
 
 public class BTWRApiRecipes {
     public static final ExtendedShapelessRecipe.Serializer EXTENDED_SHAPELESS_RECIPE_SERIALIZER = new ExtendedShapelessRecipe.Serializer();

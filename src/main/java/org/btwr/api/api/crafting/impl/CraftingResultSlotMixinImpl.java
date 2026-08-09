@@ -8,7 +8,7 @@ import net.minecraft.recipe.input.CraftingRecipeInput;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.collection.DefaultedList;
 import org.btwr.api.api.recipe.BTWRApiRecipes;
-import org.btwr.api.api.recipe.ExtendedShapelessRecipe;
+import org.btwr.api.api.recipe.recipes.ExtendedShapelessRecipe;
 
 import java.util.Optional;
 
