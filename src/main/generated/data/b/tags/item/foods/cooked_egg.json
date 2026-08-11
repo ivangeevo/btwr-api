@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "bwt:fried_egg",
+      "required": false
+    },
+    {
+      "id": "bwt:poached_egg",
+      "required": false
+    }
+  ]
+}

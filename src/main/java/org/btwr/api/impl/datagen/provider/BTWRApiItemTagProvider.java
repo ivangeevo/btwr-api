@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.util.Identifier;
 import org.btwr.api.api.tag.BTWRConventionalTags;
 
 import java.util.concurrent.CompletableFuture;
@@ -22,6 +23,10 @@ public class BTWRApiItemTagProvider extends FabricTagProvider.ItemTagProvider {
     }
     
     private void addToConventionalTags() {
+
+        getOrCreateTagBuilder(BTWRConventionalTags.Items.COOKED_EGG_FOODS)
+                .addOptional(Identifier.of("bwt", "fried_egg"))
+                .addOptional(Identifier.of("bwt", "poached_egg"));
 
         getOrCreateTagBuilder(BTWRConventionalTags.Items.STRING_TOOL_MATERIALS)
                 .add(Items.STRING);
