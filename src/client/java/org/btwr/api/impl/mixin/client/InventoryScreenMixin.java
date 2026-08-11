@@ -1,6 +1,5 @@
 package org.btwr.api.impl.mixin.client;
 
-import dev.emi.emi.mixin.accessor.HandledScreenAccessor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.AbstractInventoryScreen;
@@ -38,26 +37,29 @@ public abstract class InventoryScreenMixin extends AbstractInventoryScreen<Playe
         ExtendedShapelessRecipe recipe = getExtendedRecipe(handler);
         if (recipe == null) return;
 
-        HandledScreenAccessor accessor = (HandledScreenAccessor)(Object)screen;
+        HandledScreenAccessor accessor = (HandledScreenAccessor) screen;
 
         Slot resultSlot = handler.getSlot(0);
         int iconX = accessor.getX() + resultSlot.x + 8;
         int iconY = accessor.getY() + resultSlot.y + 16 + 2;
 
-        drawPlus(context, iconX, iconY);
+        // Only draw the plus if additional drops are present
+        if (!recipe.getAdditionalDrops().isEmpty()) {
+            drawPlus(context, iconX, iconY);
 
-        // draw tooltip if hovering
-        if (isHoveringPlus(mouseX, mouseY, iconX, iconY)) {
-            var drops = recipe.getAdditionalDrops(); // List<ItemStack>
-            if (!drops.isEmpty()) {
-                // Start with a header
-                List<Text> tooltipTexts = new ArrayList<>();
-                tooltipTexts.add(Text.literal("Additional Drops:")); // <-- your header
+            // draw tooltip if hovering
+            if (isHoveringPlus(mouseX, mouseY, iconX, iconY)) {
+                var drops = recipe.getAdditionalDrops(); // List<ItemStack>
+                if (!drops.isEmpty()) {
+                    // Start with a header
+                    List<Text> tooltipTexts = new ArrayList<>();
+                    tooltipTexts.add(Text.literal("Additional Drops:")); // <-- your header
 
-                // Then add each drop's name
-                drops.forEach(stack -> tooltipTexts.add(stack.getName()));
+                    // Then add each drop's name
+                    drops.forEach(stack -> tooltipTexts.add(stack.getName()));
 
-                context.drawTooltip(client.textRenderer, tooltipTexts, mouseX, mouseY);
+                    context.drawTooltip(client.textRenderer, tooltipTexts, mouseX, mouseY);
+                }
             }
         }
     }
@@ -79,8 +81,12 @@ public abstract class InventoryScreenMixin extends AbstractInventoryScreen<Playe
     @Unique
     private boolean isHoveringPlus(int mouseX, int mouseY, int iconX, int iconY) {
         int size = 8; // size of clickable area
-        return mouseX >= iconX - size / 2 && mouseX <= iconX + size / 2
-                && mouseY >= iconY - size / 2 && mouseY <= iconY + size / 2;
+        boolean isXPos = mouseX >= iconX - size / 2;
+        boolean isXNeg = mouseX <= iconX + size / 2;
+        boolean isYPos = mouseY >= iconY - size / 2;
+        boolean isYNeg = mouseY <= iconY + size / 2;
+
+        return isXPos && isXNeg && isYPos && isYNeg;
     }
 
     @Unique
@@ -91,7 +97,8 @@ public abstract class InventoryScreenMixin extends AbstractInventoryScreen<Playe
 
         CraftingInventory craftingInv = (CraftingInventory) handler.getCraftingInput();
 
-        return world.getRecipeManager().values().stream()
+        return world.getRecipeManager().values()
+                .stream()
                 .map(RecipeEntry::value)
                 .filter(r -> r instanceof ExtendedShapelessRecipe)
                 .map(r -> (ExtendedShapelessRecipe) r)
