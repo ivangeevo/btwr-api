@@ -26,7 +26,7 @@ import java.util.Map;
  * <p>
  * Usage:
  * <ul>
- *     <li>The library calls {@link #initialize()} during initialization to hook
+ *     <li>The API calls {@link #initialize()} during initialization to hook
  *         this mapping into {@link Registry}.</li>
  *     <li>Mods call {@link #addMapping(Block, Block)} to contribute their
  *         own conversion pairs.</li>
@@ -46,7 +46,7 @@ public final class OnFireConversionRegistry implements OnFireConversionResolver 
      * Registers this mapping implementation as the global
      * {@link OnFireConversionResolver}.
      * <p>
-     * Should be called once by the shared library during initialization.
+     * Should be called once by the BTWR API during initialization.
      */
     public static void initialize() {
         Registry.register(INSTANCE);
