@@ -1,4 +1,4 @@
-package org.btwr.api.api.registry;
+package org.btwr.api.api.recipe;
 
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.registry.Registries;

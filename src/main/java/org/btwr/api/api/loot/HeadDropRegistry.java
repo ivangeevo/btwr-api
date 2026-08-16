@@ -1,10 +1,9 @@
-package org.btwr.api.api.registry;
+package org.btwr.api.api.loot;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import org.btwr.api.BTWRApi;
 
 import java.util.HashMap;
@@ -17,8 +16,7 @@ import java.util.Map;
  * its own custom mob head drops by calling {@link #registerDrop(EntityType, Item)}
  * during initialization.
  *
- * <p>Default vanilla head drops are registered via {@link #registerDefaults()},
- * which should be called once during the shared library's initialization.
+ * <p>By default, no head drops are registered. For BTWR, BTWR: Core registers the default vanilla mob head drops.
  *
  * <p>Example usage from another mod:
  * <pre>{@code
@@ -34,7 +32,7 @@ public class HeadDropRegistry {
      * Registers a head drop item for the given entity type.
      *
      * @param entityType the entity type to register a head drop for
-     * @param drop       the item to drop as a head
+     * @param drop the item to drop as a head
      */
     public static void registerDrop(EntityType<? extends LivingEntity> entityType, Item drop) {
         if (HEAD_DROPS_MAP.containsKey(entityType)) {
@@ -44,16 +42,20 @@ public class HeadDropRegistry {
         HEAD_DROPS_MAP.put(entityType, drop);
     }
 
-    /**
-     * Registers the default vanilla head drops.
+    /** Unregister a drop for the given entity type if one is present
+     *
+     * @param entityType the entity type to unregister drops for
+     * @param drop the item to drop as a head
      */
-    public static void registerDefaults() {
-        HEAD_DROPS_MAP.put(EntityType.SKELETON, Items.SKELETON_SKULL);
-        HEAD_DROPS_MAP.put(EntityType.WITHER_SKELETON, Items.WITHER_SKELETON_SKULL);
-        HEAD_DROPS_MAP.put(EntityType.PLAYER, Items.PLAYER_HEAD);
-        HEAD_DROPS_MAP.put(EntityType.ZOMBIE, Items.ZOMBIE_HEAD);
-        HEAD_DROPS_MAP.put(EntityType.CREEPER, Items.CREEPER_HEAD);
-        HEAD_DROPS_MAP.put(EntityType.PIGLIN, Items.PIGLIN_HEAD);
+    public static void unregisterDrop(EntityType<? extends LivingEntity> entityType, Item drop) {
+        if (!HEAD_DROPS_MAP.containsKey(entityType)) {
+            BTWRApi.LOGGER.warn("No registered head drops for given entity {}. Nothing to remove.", entityType);
+            return;
+        }
+        boolean removed = HEAD_DROPS_MAP.remove(entityType, drop);
+        if (!removed) {
+            BTWRApi.LOGGER.warn("Head drop for {} is not registered to {}. Nothing removed.", entityType, drop);
+        }
     }
 
     /**

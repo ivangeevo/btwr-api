@@ -8,7 +8,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import org.btwr.api.api.loot.DirectionalDropConditions;
+import org.btwr.api.api.loot.DirectionalDropRegistry;
 import org.btwr.api.api.util.utils.ItemUtils;
 import org.btwr.api.api.util.utils.VectorUtils;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -30,7 +30,7 @@ public class StackDroppingManager {
         if (world instanceof ServerWorld) {
             Direction lookDirection = VectorUtils.getMiningDirection(entity, world, pos);
 
-            if (DirectionalDropConditions.test(state, tool)) {
+            if (DirectionalDropRegistry.test(state, tool)) {
                 ItemUtils.ejectStackFromBlockTowardsFacing(world, entity, pos, state, blockEntity, tool, lookDirection);
                 ci.cancel();
             }

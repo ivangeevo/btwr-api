@@ -12,7 +12,9 @@ public class BTWRApiRecipes {
     public static final ExtendedShapelessRecipe.Serializer EXTENDED_SHAPELESS_RECIPE_SERIALIZER = new ExtendedShapelessRecipe.Serializer();
     public static final RecipeType<ExtendedShapelessRecipe> EXTENDED_SHAPELESS_RECIPE_TYPE = new RecipeType<>() {};
 
-    public static void register() {
+    public static void initialize() {
+        BTWRApi.LOGGER.info("Initializing mod recipes for {}",  BTWRApi.MOD_NAME);
+
         // Extended shapeless recipe
         registerRecipe("crafting_shapeless_extended", EXTENDED_SHAPELESS_RECIPE_TYPE, EXTENDED_SHAPELESS_RECIPE_SERIALIZER);
     }

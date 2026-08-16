@@ -25,10 +25,9 @@ import java.util.function.Predicate;
  * directional drop behavior.</p>
  */
 
-public final class DirectionalDropConditions {
+public final class DirectionalDropRegistry {
 
-    // Private constructor to prevent instantiation
-    private DirectionalDropConditions() {}
+    private DirectionalDropRegistry() {}
 
     private static final List<Condition> CONDITIONS = new ArrayList<>();
 

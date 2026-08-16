@@ -67,7 +67,7 @@ public final class OnFireConversionRegistry implements OnFireConversionResolver 
     }
 
     @Override
-    public BlockState getSmoulderingState(
+    public BlockState getConvertedState(
             World world,
             BlockPos pos,
             BlockState preBurnState

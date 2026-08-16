@@ -14,7 +14,6 @@
     "client": ["org.btwr.api.BTWRApiClient"],
     "main": ["org.btwr.api.BTWRApi"],
     "emi": ["org.btwr.api.impl.emi.BTWRApiEmiPlugin"]
-
   },
   "mixins": [
     "btwr_api.mixins.json",

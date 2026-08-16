@@ -5,7 +5,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 /**
- * Library-wide API for "on fire conversion" logic.
+ * API for "on fire conversion" logic.
  * <p>
  * Implementations decide what block state (if any) should replace a block
  * after vanilla fire logic has finished at a given position.
@@ -25,7 +25,7 @@ public interface OnFireConversionResolver {
      * vanilla fire handling, based on the block state that existed there
      * immediately before fire acted.
      * <p>
-     * If this method returns {@code null}, the library will leave the
+     * If this method returns {@code null}, the API will leave the
      * vanilla result as-is (typically AIR or FIRE).
      *
      * @param world         the world in which the fire logic is running
@@ -35,7 +35,7 @@ public interface OnFireConversionResolver {
      * @return the replacement {@link BlockState} to place at {@code pos},
      *         or {@code null} to perform no custom conversion
      */
-    BlockState getSmoulderingState(
+    BlockState getConvertedState(
             World world,
             BlockPos pos,
             BlockState preBurnState
@@ -45,7 +45,7 @@ public interface OnFireConversionResolver {
      * Simple registry-style access for the active {@link OnFireConversionResolver}.
      * <p>
      * The mixin code calls into this registry to obtain the current resolver
-     * implementation. Library code or mods should register a single resolver
+     * implementation. API code or mods/addons should register a single resolver
      * during initialization.
      */
     final class Registry {
@@ -85,7 +85,7 @@ public interface OnFireConversionResolver {
             if (resolver == null) {
                 return null;
             }
-            return resolver.getSmoulderingState(world, pos, preBurnState);
+            return resolver.getConvertedState(world, pos, preBurnState);
         }
     }
 }

@@ -12,7 +12,7 @@ import java.util.*;
  * <p>Use this class to create, register, and retrieve difficulties.
  * Difficulties should be registered during mod initialization.
  */
-public class DifficultyRegistry {
+public class BTWRDifficultyRegistry {
     public static final Map<Identifier, BTWRDifficulty> DIFFICULTIES = new LinkedHashMap<>();
 
     /**

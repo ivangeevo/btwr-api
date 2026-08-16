@@ -1,4 +1,4 @@
-package org.btwr.api.api.registry;
+package org.btwr.api.api.recipe;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
